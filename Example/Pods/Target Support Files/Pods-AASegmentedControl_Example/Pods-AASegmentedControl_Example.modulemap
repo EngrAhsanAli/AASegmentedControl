@@ -1,0 +1,6 @@
+framework module Pods_AASegmentedControl_Example {
+  umbrella header "Pods-AASegmentedControl_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

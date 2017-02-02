@@ -1,0 +1,6 @@
+use_frameworks!
+
+target 'AASegmentedControl_Example' do
+    pod 'AASegmentedControl', :path => '../'
+    
+end

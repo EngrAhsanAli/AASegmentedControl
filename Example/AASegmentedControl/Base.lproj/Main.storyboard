@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kpX-9b-AA1">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Demo AASegmentedControl-->
+        <scene sceneID="25F-Lj-Tzf">
+            <objects>
+                <viewController id="KSH-cO-wQc" customClass="ViewController" customModule="AASegmentedControl_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Co4-p8-Q1o"/>
+                        <viewControllerLayoutGuide type="bottom" id="OVB-2t-p9m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gZ-Hh-430">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMs-C7-CQD" customClass="AASegmentedControl" customModule="AASegmentedControl">
+                                <rect key="frame" x="25" y="88" width="270" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="U2s-Fu-78J"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.22824245360000001" green="0.57103263420000006" blue="0.57090733640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unactiveColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBG">
+                                        <color key="value" red="0.45488314190000001" green="0.57103263420000006" blue="0.45844645519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="activeUnderline" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwd-k0-L25" customClass="AASegmentedControl" customModule="AASegmentedControl">
+                                <rect key="frame" x="25" y="508" width="270" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="pAt-8l-cmc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.63342811379999997" green="0.48465665949999998" blue="0.2802924155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unactiveColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBG">
+                                        <color key="value" red="0.48005046330000001" green="0.57879851650000003" blue="0.63342811379999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowDamping" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrD-Uj-P55" customClass="AASegmentedControl" customModule="AASegmentedControl">
+                                <rect key="frame" x="235" y="188" width="60" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="b2S-a3-YgK"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowDamping" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBG">
+                                        <color key="value" red="0.43921568630000002" green="0.37366495290000001" blue="0.37246020489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3se-OB-CFQ" customClass="AASegmentedControl" customModule="AASegmentedControl">
+                                <rect key="frame" x="25" y="188" width="60" height="250"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="xx5-At-uhU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHorizontal" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="activeUnderline" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.68350457710000001" green="0.8256298608" blue="0.89750647670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3se-OB-CFQ" firstAttribute="leading" secondItem="Zwd-k0-L25" secondAttribute="leading" id="Ezg-BM-Kjy"/>
+                            <constraint firstItem="wrD-Uj-P55" firstAttribute="trailing" secondItem="Zwd-k0-L25" secondAttribute="trailing" id="FkQ-rw-JlF"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="9gZ-Hh-430" secondAttribute="leadingMargin" constant="9" id="RvL-36-rwp"/>
+                            <constraint firstAttribute="bottom" secondItem="Zwd-k0-L25" secondAttribute="bottom" constant="20" symbolic="YES" id="SHP-8Z-ZcS"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="trailing" secondItem="wrD-Uj-P55" secondAttribute="trailing" id="W80-Nn-bs3"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="top" secondItem="Co4-p8-Q1o" secondAttribute="bottom" constant="24" id="WYH-4j-VsA"/>
+                            <constraint firstItem="3se-OB-CFQ" firstAttribute="top" secondItem="wrD-Uj-P55" secondAttribute="top" id="YBp-fS-Phq"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="centerX" secondItem="9gZ-Hh-430" secondAttribute="centerX" id="bAE-lx-9TJ"/>
+                            <constraint firstItem="3se-OB-CFQ" firstAttribute="top" secondItem="oMs-C7-CQD" secondAttribute="bottom" constant="60" id="bNh-Mw-bej"/>
+                            <constraint firstItem="3se-OB-CFQ" firstAttribute="centerY" secondItem="9gZ-Hh-430" secondAttribute="centerY" constant="29" id="glt-Gf-1Y9"/>
+                            <constraint firstItem="3se-OB-CFQ" firstAttribute="bottom" secondItem="wrD-Uj-P55" secondAttribute="bottom" id="hhA-fn-AnK"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="3se-OB-CFQ" secondAttribute="leading" id="wSZ-W1-7BL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Demo AASegmentedControl" id="mw5-qW-Hrs"/>
+                    <connections>
+                        <outletCollection property="segmentedControls" destination="oMs-C7-CQD" collectionClass="NSMutableArray" id="23f-un-pgF"/>
+                        <outletCollection property="segmentedControls" destination="wrD-Uj-P55" collectionClass="NSMutableArray" id="3z1-1d-Z1p"/>
+                        <outletCollection property="segmentedControls" destination="Zwd-k0-L25" collectionClass="NSMutableArray" id="9EK-ht-HYb"/>
+                        <outletCollection property="segmentedControls" destination="3se-OB-CFQ" collectionClass="NSMutableArray" id="jdg-Fm-nuL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUL-tw-IdO" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029.375" y="72.887323943661968"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YxZ-RP-pgP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kpX-9b-AA1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ijG-To-dgk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KSH-cO-wQc" kind="relationship" relationship="rootViewController" id="vUI-ld-U7E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHX-S7-DQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31.875" y="72.887323943661968"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,16 @@
+PODS:
+  - AASegmentedControl (0.1.0)
+
+DEPENDENCIES:
+  - AASegmentedControl (from `../`)
+
+EXTERNAL SOURCES:
+  AASegmentedControl:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AASegmentedControl: 454d58a0a6c5f2bc0c8dadb188cb2b3fedbf4d57
+
+PODFILE CHECKSUM: 3d6be25790d0c14a9edd5cfec723f9ce14d76bb7
+
+COCOAPODS: 1.2.0.beta.3
