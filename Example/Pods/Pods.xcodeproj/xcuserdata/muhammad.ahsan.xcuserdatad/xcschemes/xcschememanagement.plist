@@ -4,17 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AASegmentedControl.xcscheme</key>
+		<key>AASegmentedControl.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-AASegmentedControl_Example.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-AASegmentedControl_Tests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
