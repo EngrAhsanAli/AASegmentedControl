@@ -98,11 +98,11 @@ $ brew install carthage
 Then add the following line to your Cartfile:
 
 ```
-github "EngrAhsanAli/AASegmentedControl" 
+github "EngrAhsanAli/AASegmentedControl" "master"
 ```
 
 Then import the library in all files where you use it:
-```ruby
+```swift
 import AASegmentedControl
 ```
 
@@ -153,7 +153,7 @@ You can customise the rating bar appearance in the *Attributes Inspector.*
 You can set following properties in `viewDidLoad` method in your view controller.
 
 **Usage**:
-```
+```swift
 segmentControl.itemNames = // String array for titles
 segmentControl.font = // Your font
 segmentControl.selectedIndex = // Default selected index
