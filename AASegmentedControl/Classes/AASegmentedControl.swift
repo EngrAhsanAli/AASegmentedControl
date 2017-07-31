@@ -159,10 +159,12 @@ import UIKit
     ///   - event: event
     /// - Returns: false
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        
         let location = touch.location(in: self)
-        selectedIndex = items.index { return $0.frame.contains(location) }!
-        sendActions(for: .valueChanged)
+        let index = items.index { return $0.frame.contains(location) }
+        if let index = index {
+            selectedIndex = index
+            sendActions(for: .valueChanged)
+        }
         
         return false
     }
