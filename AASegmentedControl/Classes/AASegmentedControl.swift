@@ -8,13 +8,16 @@
 
 import UIKit
 
-@IBDesignable open class AASegmentedControl: UIControl {
+open class AASegmentedControl: UIControl {
 
     /// Item names
-    open var itemNames: [String] = ["Tab 1", "Tab 2"]
+    open var segmentTitles: [String] = ["Tab 1", "Tab 2"]
     
     /// Font for items
     open var font: UIFont = UIFont.boldSystemFont(ofSize: 14)
+    
+    /// Items array for UILabel
+    open var items: [UILabel] = [UILabel]()
     
     /// Selected Index
     open var selectedIndex : Int = 0 {
@@ -26,13 +29,13 @@ import UIKit
     /// @IBInspectable Allow daming animation
     @IBInspectable open var allowDamping: Bool = false
     
-    /// @IBInspectable Active underline bool
-    @IBInspectable open var activeUnderline: Bool = false {
+    /// @IBInspectable Active underline height
+    @IBInspectable open var underlineHeight: CGFloat = 0 {
         didSet {
             setNeedsLayout()
         }
     }
-
+    
     /// @IBInspectable AASegmentedControl direction
     @IBInspectable open var isHorizontal: Bool = true {
         didSet {
@@ -41,7 +44,7 @@ import UIKit
     }
 
     /// @IBInspectable Border radius
-    @IBInspectable open var borderRadius: CGFloat = 5 {
+    @IBInspectable open var borderRadius: CGFloat = 0 {
         didSet {
             let maxRadius = frame.height/2
             if borderRadius > maxRadius {
@@ -71,35 +74,32 @@ import UIKit
     }
     
     /// @IBInspectable active text color
-    @IBInspectable open var activeColor : UIColor = .white {
+    @IBInspectable open var activeText : UIColor = .white {
         didSet {
             setNeedsLayout()
         }
     }
     
     /// @IBInspectable unactive text color
-    @IBInspectable open var unactiveColor : UIColor = .black {
+    @IBInspectable open var unactiveText : UIColor = .black {
         didSet {
             setNeedsLayout()
         }
     }
     
     /// @IBInspectable active background color
-    @IBInspectable open var activeBG: UIColor = .darkGray {
+    @IBInspectable open var activeBg: UIColor = .darkGray {
         didSet {
             setNeedsLayout()
         }
     }
     
-    /// Items array for UILabel
-    var items: [UILabel] = [UILabel]()
-    
     /// Active background view
     var activeBackground: UIView = UIView() {
         didSet {
             activeBackground.frame = itemFrame
-            activeBackground.backgroundColor = activeBG
-            activeBackground.layer.cornerRadius = activeUnderline ? 0 : borderRadius
+            activeBackground.backgroundColor = activeBg
+            activeBackground.layer.cornerRadius = underlineHeight == 0 ? 0 : borderRadius
             insertSubview(activeBackground, at: 0)
         }
     }
@@ -121,11 +121,9 @@ import UIKit
         setNeedsDisplay()
     }
     
-    
-    
     /// setup items and add subviews
     func setupItems() {
-        items = itemNames.flatMap { (text) -> UILabel in
+        items = segmentTitles.compactMap { (text) -> UILabel in
             let label = UILabel()
             label.text = text
             label.textAlignment = .center
@@ -174,15 +172,12 @@ import UIKit
     }
     
     /// Select and animate Item at index
-    func selectItemAtIndex(){
-    
+    func selectItemAtIndex() {
+        
         guard let label: UILabel = items.count > selectedIndex ? items[selectedIndex] : nil
             else { return }
-        
-        items.forEach({$0.textColor = unactiveColor})
-        
-        label.textColor = activeColor
-        
+        items.forEach({$0.textColor = unactiveText})
+        label.textColor = activeText
         animateActiveItem(label)
         
     }
@@ -192,7 +187,7 @@ import UIKit
     ///
     /// - Parameter label: selected item
     func animateActiveItem(_ label: UILabel) {
-        let totalItems = CGFloat(itemNames.count)
+        let totalItems = CGFloat(segmentTitles.count)
         var labelFrame = self.bounds
         
         labelFrame.origin = label.frame.origin
@@ -206,9 +201,9 @@ import UIKit
         }
         
         // Active view under line or rectangle
-        if activeUnderline {
-            labelFrame.size.height = 4
-            labelFrame.origin.y = label.frame.maxY - 2*(labelFrame.size.height)
+        if underlineHeight != 0 {
+            labelFrame.size.height = underlineHeight
+            labelFrame.origin.y = label.frame.maxY - (labelFrame.size.height)
         }
         
         // Allows daming effect

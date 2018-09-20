@@ -21,7 +21,7 @@
 
 #AASegmentedControl
 
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods](https://img.shields.io/cocoapods/v/AASegmentedControl.svg)](http://cocoadocs.org/docsets/AASegmentedControl) [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/EngrAhsanAli/AASegmentedControl.svg?branch=master)](https://travis-ci.org/EngrAhsanAli/AASegmentedControl) 
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat)](https://developer.apple.com/swift/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CocoaPods](https://img.shields.io/cocoapods/v/AASegmentedControl.svg)](http://cocoadocs.org/docsets/AASegmentedControl) [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/EngrAhsanAli/AASegmentedControl.svg?branch=master)](https://travis-ci.org/EngrAhsanAli/AASegmentedControl) 
 ![License MIT](https://img.shields.io/github/license/mashape/apistatus.svg) [![CocoaPods](https://img.shields.io/cocoapods/p/AASegmentedControl.svg)]()
 
 
@@ -154,7 +154,7 @@ You can set following properties in `viewDidLoad` method in your view controller
 
 **Usage**:
 ```swift
-segmentControl.itemNames = // String array for titles
+segmentControl.segmentTitles = // String array for titles
 segmentControl.font = // Your font
 segmentControl.selectedIndex = // Default selected index
 
@@ -188,9 +188,9 @@ You can use following properties:
 | `borderRadius`    | `CGFloat` | border radius			   				   |
 | `borderWidth`     | `CGFloat` | border width 			 				   |
 | `borderColor`     | `UIColor` | border color							   |
-| `activeColor`     | `UIColor` | active item text color				   |
-| `unactiveColor`   | `UIColor` | unactive item text color				   |
-| `activeBG`        | `UIColor` | active item background color			   |
+| `activeText`     | `UIColor` | active item text color				   |
+| `unactiveText`   | `UIColor` | unactive item text color				   |
+| `activeBg`        | `UIColor` | active item background color			   |
 
 <div id='section-id-156'/>
 

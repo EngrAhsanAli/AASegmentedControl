@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     func setupSegmentedControl(_ segmentControl: AASegmentedControl) {
-        segmentControl.itemNames = ["TAB 1","TAB 2","TAB 3"]
+        segmentControl.segmentTitles = ["TAB 1","TAB 2","TAB 3"]
         segmentControl.font = UIFont(name: "Chalkduster", size: 14.0)!
         segmentControl.selectedIndex = 1
         segmentControl.addTarget(self,
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                                  for: .valueChanged)
     }
     
-    func segmentValueChanged(_ sender: AASegmentedControl) {
+    @objc func segmentValueChanged(_ sender: AASegmentedControl) {
         
         segmentedControls.forEach({$0.selectedIndex = sender.selectedIndex})
         

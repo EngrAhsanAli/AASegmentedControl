@@ -12,7 +12,7 @@ extension AASegmentedControl {
     
     var itemFrame: CGRect {
         get {
-            let totalItems = CGFloat(itemNames.count)
+            let totalItems = CGFloat(segmentTitles.count)
             var frame = self.bounds
             
             if isHorizontal {
@@ -40,7 +40,7 @@ extension AASegmentedControl {
             var constraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
             
             /// Constraints to bind the views
-            let bindConstraints = bindAttrs.flatMap({ (attr) -> NSLayoutConstraint in
+            let bindConstraints = bindAttrs.compactMap({ (attr) -> NSLayoutConstraint in
                 return NSLayoutConstraint(item: label, attribute: attr, relatedBy: .equal, toItem: self, attribute: attr, multiplier: 1.0, constant: 0)
             })
             
