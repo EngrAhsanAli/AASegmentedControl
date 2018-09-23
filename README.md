@@ -179,7 +179,7 @@ You can use following properties:
 
 |  Properties	    |  Types	| Description		    				   |
 |-------------------|-----------|------------------------------------------|
-| `itemNames`       | `[String]`| array of item names 					   |
+| `segmentTitles`   | `[String]`| array of item names 					   |
 | `font`            | `UIFont`  | font for items with size			       |
 | `selectedIndex`   | `Int`     | selected index of item   				   |			   
 | `allowDamping`    | `Bool`    | allow dampling animation for active view |
