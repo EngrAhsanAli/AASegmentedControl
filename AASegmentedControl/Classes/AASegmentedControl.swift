@@ -159,7 +159,7 @@ open class AASegmentedControl: UIControl {
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         let location = touch.location(in: self)
-        selectedIndex = items.index { return $0.frame.contains(location) }!
+        selectedIndex = items.firstIndex { return $0.frame.contains(location) }!
         sendActions(for: .valueChanged)
         
         return false

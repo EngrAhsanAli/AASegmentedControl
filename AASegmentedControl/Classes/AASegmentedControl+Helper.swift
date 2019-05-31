@@ -34,7 +34,7 @@ extension AASegmentedControl {
     ///   - preAttr: Attribute before the view
     ///   - nextAttr: Attribute after the view
     ///   - equalAttr: Attribute equal to the view
-    func layoutItems(bindAttrs: [NSLayoutAttribute], preAttr: NSLayoutAttribute, nextAttr: NSLayoutAttribute, equalAttr: NSLayoutAttribute) {
+    func layoutItems(bindAttrs: [NSLayoutConstraint.Attribute], preAttr: NSLayoutConstraint.Attribute, nextAttr: NSLayoutConstraint.Attribute, equalAttr: NSLayoutConstraint.Attribute) {
         
         let constraints = items.enumerated().flatMap { (index, label) -> [NSLayoutConstraint] in
             var constraints: [NSLayoutConstraint] = [NSLayoutConstraint]()

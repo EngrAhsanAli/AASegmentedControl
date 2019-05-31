@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18CBF166E8E9ED964559C99BC5EBEE7C"
+               BlueprintIdentifier = "E01514AB6DC55A7ECCA73D36C71A5436"
                BuildableName = "AASegmentedControl.framework"
                BlueprintName = "AASegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18CBF166E8E9ED964559C99BC5EBEE7C"
+            BlueprintIdentifier = "E01514AB6DC55A7ECCA73D36C71A5436"
             BuildableName = "AASegmentedControl.framework"
             BlueprintName = "AASegmentedControl"
             ReferencedContainer = "container:Pods.xcodeproj">
