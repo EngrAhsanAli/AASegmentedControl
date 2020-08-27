@@ -88,19 +88,16 @@ open class AASegmentedControl: UIControl {
     }
     
     /// @IBInspectable active background color
-    @IBInspectable open var activeBg: UIColor = .darkGray {
+    @IBInspectable open var activeBg: UIColor = .clear {
         didSet {
-            setNeedsLayout()
+            setNeedsDisplay()
         }
     }
     
     /// Active background view
     var activeBackground: UIView = UIView() {
         didSet {
-            activeBackground.frame = itemFrame
-            activeBackground.backgroundColor = activeBg
-            activeBackground.layer.cornerRadius = underlineHeight == 0 ? 0 : borderRadius
-            insertSubview(activeBackground, at: 0)
+            setNeedsLayout()
         }
     }
     
@@ -110,15 +107,19 @@ open class AASegmentedControl: UIControl {
     override open func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        activeBackground = UIView()
-
         layer.borderColor = borderColor.cgColor
         layer.cornerRadius = borderRadius
         layer.borderWidth = borderWidth
         
         setupItems()
         setupAutoLayout()
-        setNeedsDisplay()
+        
+        activeBackground.removeFromSuperview()
+        activeBackground.frame = itemFrame
+        activeBackground.backgroundColor = activeBg
+        activeBackground.layer.cornerRadius = underlineHeight == 0 ? 0 : borderRadius
+        insertSubview(activeBackground, at: 0)
+        
     }
     
     /// setup items and add subviews

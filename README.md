@@ -74,7 +74,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'AASegmentedControl' , '1.1'
+pod 'AASegmentedControl' , '1.3'
 end
 
 ```
