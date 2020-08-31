@@ -14,6 +14,7 @@ s.author           = { 'Engr. Ahsan Ali' => 'hafiz.m.ahsan.ali@gmail.com' }
 s.source           = { :git => 'https://github.com/EngrAhsanAli/AASegmentedControl.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '8.0'
+s.swift_version = '5.0'
 
 s.source_files = 'AASegmentedControl/Classes/**/*'
 

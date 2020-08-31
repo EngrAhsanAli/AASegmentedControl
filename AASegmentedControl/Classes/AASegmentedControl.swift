@@ -169,6 +169,10 @@ open class AASegmentedControl: UIControl {
     /// layoutSubviews
     override open func layoutSubviews() {
         super.layoutSubviews()
+        if underlineHeight != 0 {
+            activeBackground.frame.size.height = underlineHeight
+            activeBackground.frame.origin.y = frame.maxY - activeBackground.frame.size.height
+        }
         selectItemAtIndex()
     }
     
