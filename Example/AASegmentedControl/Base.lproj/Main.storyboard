@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kpX-9b-AA1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kpX-9b-AA1">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMs-C7-CQD" customClass="AASegmentedControl" customModule="AASegmentedControl">
-                                <rect key="frame" x="25" y="68" width="270" height="40"/>
+                                <rect key="frame" x="93" y="68" width="136" height="40"/>
                                 <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U2s-Fu-78J"/>
@@ -57,6 +57,9 @@
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowDamping" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeBg">
+                                        <color key="value" red="0.74509803919999995" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrD-Uj-P55" customClass="AASegmentedControl" customModule="AASegmentedControl">
@@ -91,16 +94,16 @@
                         <constraints>
                             <constraint firstItem="3se-OB-CFQ" firstAttribute="leading" secondItem="Zwd-k0-L25" secondAttribute="leading" id="Ezg-BM-Kjy"/>
                             <constraint firstItem="wrD-Uj-P55" firstAttribute="trailing" secondItem="Zwd-k0-L25" secondAttribute="trailing" id="FkQ-rw-JlF"/>
-                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="9gZ-Hh-430" secondAttribute="leadingMargin" constant="9" id="RvL-36-rwp"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="9gZ-Hh-430" secondAttribute="leadingMargin" constant="77" id="RvL-36-rwp"/>
                             <constraint firstAttribute="bottom" secondItem="Zwd-k0-L25" secondAttribute="bottom" constant="20" symbolic="YES" id="SHP-8Z-ZcS"/>
-                            <constraint firstItem="oMs-C7-CQD" firstAttribute="trailing" secondItem="wrD-Uj-P55" secondAttribute="trailing" id="W80-Nn-bs3"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="trailing" secondItem="wrD-Uj-P55" secondAttribute="trailing" constant="-66" id="W80-Nn-bs3"/>
                             <constraint firstItem="oMs-C7-CQD" firstAttribute="top" secondItem="Co4-p8-Q1o" secondAttribute="bottom" constant="24" id="WYH-4j-VsA"/>
                             <constraint firstItem="3se-OB-CFQ" firstAttribute="top" secondItem="wrD-Uj-P55" secondAttribute="top" id="YBp-fS-Phq"/>
-                            <constraint firstItem="oMs-C7-CQD" firstAttribute="centerX" secondItem="9gZ-Hh-430" secondAttribute="centerX" id="bAE-lx-9TJ"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="centerX" secondItem="9gZ-Hh-430" secondAttribute="centerX" constant="1" id="bAE-lx-9TJ"/>
                             <constraint firstItem="3se-OB-CFQ" firstAttribute="top" secondItem="oMs-C7-CQD" secondAttribute="bottom" constant="60" id="bNh-Mw-bej"/>
                             <constraint firstItem="3se-OB-CFQ" firstAttribute="centerY" secondItem="9gZ-Hh-430" secondAttribute="centerY" constant="29" id="glt-Gf-1Y9"/>
                             <constraint firstItem="3se-OB-CFQ" firstAttribute="bottom" secondItem="wrD-Uj-P55" secondAttribute="bottom" id="hhA-fn-AnK"/>
-                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="3se-OB-CFQ" secondAttribute="leading" id="wSZ-W1-7BL"/>
+                            <constraint firstItem="oMs-C7-CQD" firstAttribute="leading" secondItem="3se-OB-CFQ" secondAttribute="leading" constant="68" id="wSZ-W1-7BL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo AASegmentedControl" id="mw5-qW-Hrs"/>

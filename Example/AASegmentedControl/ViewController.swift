@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         segmentControl.segmentTitles = ["TAB 1","TAB 2","TAB 3"]
         segmentControl.font = UIFont(name: "Chalkduster", size: 14.0)!
         segmentControl.selectedIndex = 1
+        segmentControl.allowDamping = true
+        segmentControl.underLineTitles = true
         segmentControl.addTarget(self,
                                  action: #selector(ViewController.segmentValueChanged(_:)),
                                  for: .valueChanged)

@@ -22,19 +22,21 @@ open class AASegmentedControl: UIControl {
     /// Selected Index
     open var selectedIndex : Int = 0 {
         didSet {
-            setNeedsLayout()
+            selectItemAtIndex(true)
         }
     }
     
     /// @IBInspectable Allow daming animation
-    @IBInspectable open var allowDamping: Bool = false
+    @IBInspectable open var allowDamping: Bool = true
+    
+    /// AASegmentedControl underline titles only
+    open var underLineTitles: Bool = false
     
     /// @IBInspectable Active underline height
-    @IBInspectable open var underlineHeight: CGFloat = 0 {
-        didSet {
-            setNeedsLayout()
-        }
-    }
+    @IBInspectable open var underlineHeight: CGFloat = 0
+
+    /// @IBInspectable text alignment
+    @IBInspectable open var textAlignment: NSTextAlignment = .center
     
     /// @IBInspectable AASegmentedControl direction
     @IBInspectable open var isHorizontal: Bool = true {
@@ -50,8 +52,7 @@ open class AASegmentedControl: UIControl {
             if borderRadius > maxRadius {
                 borderRadius = maxRadius
             }
-            setNeedsLayout()
-
+            layer.cornerRadius = borderRadius
         }
     }
     
@@ -62,14 +63,14 @@ open class AASegmentedControl: UIControl {
             if borderWidth > maxWidth {
                 borderWidth = maxWidth
             }
-            setNeedsLayout()
+            layer.borderWidth = borderWidth
         }
     }
     
     /// @IBInspectable Border color
     @IBInspectable open var borderColor : UIColor = .black {
         didSet {
-            setNeedsLayout()
+            layer.borderColor = borderColor.cgColor
         }
     }
     
@@ -95,11 +96,11 @@ open class AASegmentedControl: UIControl {
     }
     
     /// Active background view
-    var activeBackground: UIView = UIView() {
-        didSet {
-            setNeedsLayout()
-        }
-    }
+    lazy var activeBackground: UIView = {
+       let view = UIView()
+        insertSubview(view, at: 0)
+        return view
+    }()
     
     /// draw
     ///
@@ -111,23 +112,23 @@ open class AASegmentedControl: UIControl {
         layer.cornerRadius = borderRadius
         layer.borderWidth = borderWidth
         
-        setupItems()
-        setupAutoLayout()
-        
-        activeBackground.removeFromSuperview()
-        activeBackground.frame = itemFrame
         activeBackground.backgroundColor = activeBg
         activeBackground.layer.cornerRadius = underlineHeight == 0 ? 0 : borderRadius
-        insertSubview(activeBackground, at: 0)
+        
+        setupItems()
+        setupAutoLayout()
         
     }
     
     /// setup items and add subviews
     func setupItems() {
+        guard segmentTitles.count != 0 else {
+            fatalError("AASegmentedControl:- Titles shouldnt empty")
+        }
         items = segmentTitles.compactMap { (text) -> UILabel in
             let label = UILabel()
             label.text = text
-            label.textAlignment = .center
+            label.textAlignment = textAlignment
             label.font = font
             label.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(label)
@@ -160,9 +161,10 @@ open class AASegmentedControl: UIControl {
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         let location = touch.location(in: self)
-        selectedIndex = items.firstIndex { return $0.frame.contains(location) }!
-        sendActions(for: .valueChanged)
-        
+        if let index = items.firstIndex(where: { return $0.frame.contains(location) }) {
+            selectedIndex = index
+            sendActions(for: .valueChanged)
+        }
         return false
     }
     
@@ -173,17 +175,17 @@ open class AASegmentedControl: UIControl {
             activeBackground.frame.size.height = underlineHeight
             activeBackground.frame.origin.y = frame.maxY - activeBackground.frame.size.height
         }
-        selectItemAtIndex()
+        selectItemAtIndex(false)
     }
     
     /// Select and animate Item at index
-    func selectItemAtIndex() {
+    func selectItemAtIndex(_ animate: Bool) {
         
         guard let label: UILabel = items.count > selectedIndex ? items[selectedIndex] : nil
             else { return }
         items.forEach({$0.textColor = unactiveText})
         label.textColor = activeText
-        animateActiveItem(label)
+        animateActiveItem(label, animate: animate)
         
     }
     
@@ -191,7 +193,7 @@ open class AASegmentedControl: UIControl {
     /// UIView animate for active view item
     ///
     /// - Parameter label: selected item
-    func animateActiveItem(_ label: UILabel) {
+    func animateActiveItem(_ label: UILabel, animate: Bool) {
         let totalItems = CGFloat(segmentTitles.count)
         var labelFrame = self.bounds
         
@@ -202,6 +204,7 @@ open class AASegmentedControl: UIControl {
             labelFrame.size.width /= totalItems
         }
         else {
+            
             labelFrame.size.height /= totalItems
         }
         
@@ -209,12 +212,19 @@ open class AASegmentedControl: UIControl {
         if underlineHeight != 0 {
             labelFrame.size.height = underlineHeight
             labelFrame.origin.y = label.frame.maxY - (labelFrame.size.height)
+            self.activeBackground.frame.origin.y = labelFrame.origin.y
+            
+            if underLineTitles {
+                labelFrame.size.width = label.intrinsicContentSize.width
+                labelFrame.origin.x = label.center.x - (labelFrame.size.width/2)
+            }
+            
         }
         
         // Allows daming effect
         if allowDamping {
             
-            UIView.animate(withDuration: 0.4,
+            UIView.animate(withDuration: animate ? 0.4 : 0,
                            delay: 0.0,
                            usingSpringWithDamping: 0.5,
                            initialSpringVelocity: 0.6,
@@ -225,7 +235,7 @@ open class AASegmentedControl: UIControl {
             }, completion: nil)
         }
         else {
-            UIView.animate(withDuration: 0.1,
+            UIView.animate(withDuration: animate ? 0.1 : 0,
                            delay: 0.0,
                            animations: {
                             
