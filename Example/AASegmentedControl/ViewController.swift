@@ -28,6 +28,10 @@ class ViewController: UIViewController {
         segmentControl.addTarget(self,
                                  action: #selector(ViewController.segmentValueChanged(_:)),
                                  for: .valueChanged)
+        segmentControl.disabledIndicies = [0]
+        segmentControl.onDisabledClick = {
+            print("Disabled Tab Click at index: ", $0)
+        }
     }
     
     @objc func segmentValueChanged(_ sender: AASegmentedControl) {

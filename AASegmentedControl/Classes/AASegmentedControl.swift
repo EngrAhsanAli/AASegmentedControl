@@ -19,6 +19,17 @@ open class AASegmentedControl: UIControl {
     /// Items array for UILabel
     open var items: [UILabel] = [UILabel]()
     
+    /// Disabled tabs
+    open var disabledIndicies = Set<Int>() {
+        didSet { setDisabledTabs() }
+    }
+    
+    /// Tab color for disabled background segment
+    open var disabledBackgroundColor: UIColor = .clear
+    
+    /// Tab color for disabled text color segment
+    open var disabledTextColor: UIColor = .lightGray
+    
     /// Selected Index
     open var selectedIndex : Int = 0 {
         didSet {
@@ -96,11 +107,17 @@ open class AASegmentedControl: UIControl {
     }
     
     /// Active background view
-    lazy var activeBackground: UIView = {
+    lazy open var activeBackground: UIView = {
        let view = UIView()
         insertSubview(view, at: 0)
         return view
     }()
+    
+    /// Callback after completion of drawing elements
+    open var onDrawCompletion: (() -> ())?
+    
+    /// Callback for disabled tab click
+    open var onDisabledClick: ((Int) -> ())?
     
     /// draw
     ///
@@ -117,7 +134,7 @@ open class AASegmentedControl: UIControl {
         
         setupItems()
         setupAutoLayout()
-        
+        onDrawCompletion?()
     }
     
     /// setup items and add subviews
@@ -152,6 +169,16 @@ open class AASegmentedControl: UIControl {
         }
     }
     
+    /// Set disabled tabs
+    func setDisabledTabs() {
+        disabledIndicies.forEach {
+            if items.count > $0 {
+                items[$0].backgroundColor = disabledBackgroundColor
+                items[$0].textColor = disabledTextColor
+            }
+        }
+    }
+    
     /// Detect selected index when click
     ///
     /// - Parameters:
@@ -161,9 +188,12 @@ open class AASegmentedControl: UIControl {
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         
         let location = touch.location(in: self)
-        if let index = items.firstIndex(where: { return $0.frame.contains(location) }) {
-            selectedIndex = index
-            sendActions(for: .valueChanged)
+        if let index = items.firstIndex(where: { return $0.frame.contains(location) }), selectedIndex != index {
+            if disabledIndicies.contains(index) { onDisabledClick?(index) }
+            else {
+                selectedIndex = index
+                sendActions(for: .valueChanged)
+            }
         }
         return false
     }
@@ -176,12 +206,13 @@ open class AASegmentedControl: UIControl {
             activeBackground.frame.origin.y = frame.maxY - activeBackground.frame.size.height
         }
         selectItemAtIndex(false)
+        setDisabledTabs()
     }
     
     /// Select and animate Item at index
     func selectItemAtIndex(_ animate: Bool) {
         
-        guard let label: UILabel = items.count > selectedIndex ? items[selectedIndex] : nil
+        guard let label: UILabel = items.count > selectedIndex ? items[selectedIndex] : nil, !disabledIndicies.contains(selectedIndex)
             else { return }
         items.forEach({$0.textColor = unactiveText})
         label.textColor = activeText

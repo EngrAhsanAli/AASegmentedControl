@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'AASegmentedControl'
-s.version          = '1.4'
+s.version          = '1.5'
 s.summary          = 'AASegmentedControl is lightweight and easy-to-use customised segmented controls, written in Swift.'
 
 s.description      = <<-DESC
